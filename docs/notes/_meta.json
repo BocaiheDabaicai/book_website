@@ -1,0 +1,15 @@
+[
+  {
+    "type": "file",
+    "name": "index",
+    "label": "学习笔记"
+  },
+  {
+    "type": "divider"
+  },
+  {
+    "type": "file",
+    "name": "亲卫队请问",
+    "label": "亲卫队请问"
+  }
+]

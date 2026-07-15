@@ -1,0 +1,22 @@
+[
+  {
+    "text": "书籍",
+    "link": "/books/",
+    "activeMatch": "/books/"
+  },
+  {
+    "text": "论文",
+    "link": "/papers/",
+    "activeMatch": "/papers/"
+  },
+  {
+    "text": "笔记总结",
+    "link": "/notes/",
+    "activeMatch": "/notes/"
+  },
+  {
+    "text": "管理",
+    "link": "/admin/",
+    "activeMatch": "/admin/"
+  }
+]

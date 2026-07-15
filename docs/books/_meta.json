@@ -1,0 +1,20 @@
+[
+  {
+    "type": "file",
+    "name": "index",
+    "label": "书籍总览"
+  },
+  {
+    "type": "divider"
+  },
+  {
+    "type": "file",
+    "name": "1",
+    "label": "1"
+  },
+  {
+    "type": "file",
+    "name": "2",
+    "label": "2"
+  }
+]

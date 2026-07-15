@@ -1,0 +1,22 @@
+[
+  {
+    "type": "file",
+    "name": "index",
+    "label": "管理总览"
+  },
+  {
+    "type": "file",
+    "name": "books",
+    "label": "书籍管理"
+  },
+  {
+    "type": "file",
+    "name": "papers",
+    "label": "论文管理"
+  },
+  {
+    "type": "file",
+    "name": "notes",
+    "label": "笔记管理"
+  }
+]

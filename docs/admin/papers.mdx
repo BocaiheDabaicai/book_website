@@ -1,0 +1,29 @@
+---
+title: 论文管理
+---
+
+import { FileSystemProvider } from '../../src/components/FileSystemContext';
+import { PaperManager } from '../../src/components/PaperManager';
+import { PaperSummaryManager } from '../../src/components/PaperSummaryManager';
+
+# 论文管理
+
+上传 PDF 文件、创建论文阅读页面、填写论文精读总结。
+
+<FileSystemProvider>
+
+## 论文页面与 PDF
+
+上传 PDF 并创建论文阅读页面。支持拖拽 PDF 到上传区域。
+
+<PaperManager />
+
+---
+
+## 论文精读总结
+
+填写论文精读记录，自动追加到总结文件。
+
+<PaperSummaryManager />
+
+</FileSystemProvider>
