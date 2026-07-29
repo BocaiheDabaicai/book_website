@@ -1,0 +1,257 @@
+@import './fonts.css';
+
+/* ── 阅读·书斋 主题 ──
+   Green leaf · Warm paper · Gentle reading
+   ─────────────────────────────── */
+
+/* ── Brand Colors: Sage Green ── */
+:where(:root) {
+  --rp-c-brand: #7eb89a;
+  --rp-c-brand-light: #a0d0b8;
+  --rp-c-brand-lighter: #d4ece0;
+  --rp-c-brand-dark: #5d9a7a;
+  --rp-c-brand-darker: #427a60;
+  --rp-c-brand-tint: #7eb89a22;
+
+  /* Soften radius */
+  --rp-radius: 0.875rem;
+  --rp-radius-small: 0.5rem;
+  --rp-radius-large: 1.5rem;
+
+  /* Gentler shadows — like soft book covers */
+  --rp-shadow-1: 0 1px 2px #4a6b5a08, 0 1px 0 #4a6b5a0a;
+  --rp-shadow-2: 0 3px 10px #4a6b5a0c, 0 1px 3px #4a6b5a0e;
+  --rp-shadow-3: 0 10px 28px #4a6b5a12, 0 2px 5px #4a6b5a0f;
+  --rp-shadow-4: 0 12px 40px #4a6b5a19, 0 3px 8px #4a6b5a16;
+  --rp-shadow-5: 0 16px 52px #4a6b5a22, 0 4px 10px #4a6b5a20;
+}
+
+/* ── Light Theme: Warm Paper ── */
+:where(html:not(.rp-dark)) {
+  --rp-c-bg: #fdfcfa;
+  --rp-c-bg-soft: #f5f3ee;
+  --rp-c-bg-mute: #ede9e2;
+  --rp-c-bg-alt: #fdfcfa;
+  --rp-c-divider: #4a6b5a20;
+  --rp-c-divider-light: #4a6b5a10;
+  --rp-c-text-0: #2d2a25;
+  --rp-c-text-1: #3d3a35;
+  --rp-c-text-2: #6b6760;
+  --rp-c-text-3: #9a958d70;
+  --rp-c-text-4: #9a958d2e;
+  --rp-c-text-code: #527a68;
+  --rp-c-text-code-bg: #7eb89a10;
+  --rp-c-text-code-border: #7eb89a15;
+  --rp-c-link: var(--rp-c-brand-darker);
+
+  /* Home page: soft green glow */
+  --rp-home-hero-secondary-color: #b8a080;
+  --rp-home-hero-title-color: transparent;
+  --rp-home-hero-title-bg: linear-gradient(
+    90deg,
+    #427a60 0%,
+    #5d9a7a 30%,
+    #b8a080 100%
+  );
+  --rp-home-background-bg:
+    radial-gradient(42.12% 56.13% at 100% 0%, #7eb89a15 0%, #fff0 100%),
+    radial-gradient(42.01% 79.63% at 52.86% 0%, #a0d0b820 0%, #fff0 100%),
+    radial-gradient(79.67% 58.09% at 0% 0%, #b8a08018 0%, #fff0 100%),
+    #fdfcfa;
+  --rp-home-feature-bg: linear-gradient(
+    135deg,
+    #fdfcfa,
+    #f5f3ee80
+  );
+}
+
+/* ── Dark Theme: Deep Forest ── */
+:where(html.rp-dark) {
+  --rp-c-bg: #1a1d1b;
+  --rp-c-bg-soft: #242926;
+  --rp-c-bg-mute: #2d322f;
+  --rp-c-bg-alt: #1a1d1b;
+  --rp-c-divider: #a0d0b820;
+  --rp-c-divider-light: #a0d0b812;
+  --rp-c-text-0: #e8e5df;
+  --rp-c-text-1: #ddd9d2;
+  --rp-c-text-2: #a8a59a;
+  --rp-c-text-3: #7a776c61;
+  --rp-c-text-4: #7a776c2e;
+  --rp-c-text-code: #a0d0b8;
+  --rp-c-text-code-bg: #ffffff0a;
+  --rp-c-text-code-border: #ffffff0a;
+  --rp-c-link: var(--rp-c-brand-light);
+
+  --rp-home-hero-secondary-color: #c8b898;
+  --rp-home-hero-title-color: transparent;
+  --rp-home-hero-title-bg: linear-gradient(
+    90deg,
+    var(--rp-c-brand-dark) 0%,
+    var(--rp-c-brand-dark) 30%,
+    var(--rp-home-hero-secondary-color) 100%
+  );
+  --rp-home-background-bg:
+    radial-gradient(42.12% 56.13% at 100% 0%, #1a3a28 0%, #12121200 100%),
+    radial-gradient(55.81% 87.78% at 48.37% 0%, #000 0%, #12121200 89.55%),
+    radial-gradient(122.65% 88.24% at 0% 0%, #2a3a18 0%, #12121200 100%),
+    #121212;
+  --rp-home-feature-bg: linear-gradient(135deg, #fff0, #ffffff06);
+}
+
+/* ── Typography: Book-like reading feel ── */
+:root {
+  --rp-font-family-base: "Noto Serif SC", "Source Han Serif SC", "Noto Serif",
+    Georgia, "Times New Roman", "Songti SC", "SimSun", serif;
+  --rp-font-family-mono: "JetBrains Mono", "Fira Code", Menlo, Monaco,
+    Consolas, "Courier New", monospace;
+}
+
+body {
+  letter-spacing: 0.01em;
+}
+
+/* ── Navigation: softer, book-shelf feel ── */
+.rp-nav {
+  backdrop-filter: blur(12px);
+  background: #fdfcfab0;
+}
+
+:where(html.rp-dark) .rp-nav {
+  background: #1a1d1bb0;
+}
+
+.rp-nav .rp-nav-item {
+  font-weight: 450;
+  transition: color 0.2s ease;
+}
+
+/* ── Sidebar ── */
+.rp-sidebar {
+  scrollbar-width: thin;
+  scrollbar-color: var(--rp-c-brand-lighter) transparent;
+}
+
+.rp-sidebar .rp-link {
+  border-radius: 6px;
+  transition: all 0.15s ease;
+}
+
+.rp-sidebar .rp-link:hover {
+  background: var(--rp-c-brand-lighter);
+}
+
+.rp-sidebar .rp-link.rp-active {
+  color: var(--rp-c-brand-darker);
+  background: var(--rp-c-brand-lighter);
+  font-weight: 550;
+}
+
+/* ── Content area ── */
+.rp-doc h1 {
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--rp-c-text-0);
+}
+
+.rp-doc h2,
+.rp-doc h3 {
+  font-weight: 550;
+}
+
+.rp-doc a:not(.rp-link) {
+  color: var(--rp-c-brand-darker);
+  text-decoration-color: var(--rp-c-brand-lighter);
+  text-underline-offset: 2px;
+  transition: text-decoration-color 0.15s;
+}
+
+.rp-doc a:not(.rp-link):hover {
+  text-decoration-color: var(--rp-c-brand);
+}
+
+/* ── Cards & Features ── */
+.rp-home-feature {
+  border-radius: 14px;
+  border: 1px solid var(--rp-c-divider-light);
+  box-shadow: var(--rp-shadow-2);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.rp-home-feature:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--rp-shadow-3);
+}
+
+/* ── Hero ── */
+.rp-home-hero .rp-home-hero-name {
+  font-weight: 650;
+  font-size: 3.2rem;
+  letter-spacing: 0.04em;
+}
+
+.rp-home-hero .rp-home-hero-text {
+  color: var(--rp-c-text-2);
+  font-size: 1.15rem;
+}
+
+/* ── Code blocks ── */
+.rp-code-block {
+  border-radius: 10px;
+  box-shadow: var(--rp-shadow-1);
+}
+
+/* ── Tables ── */
+.rp-doc table {
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.rp-doc th {
+  background: var(--rp-c-brand-lighter);
+  color: var(--rp-c-brand-darker);
+  font-weight: 550;
+}
+
+/* ── Buttons ── */
+.rp-button-brand {
+  background: var(--rp-c-brand);
+  border-radius: 8px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.rp-button-brand:hover {
+  background: var(--rp-c-brand-dark);
+  box-shadow: var(--rp-shadow-2);
+}
+
+/* ── Search ── */
+.rp-search-button {
+  border-radius: 8px;
+  transition: all 0.15s ease;
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--rp-c-brand-lighter);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--rp-c-brand);
+}
+
+/* ── Selection ── */
+::selection {
+  background: var(--rp-c-brand-lighter);
+  color: var(--rp-c-brand-darker);
+}

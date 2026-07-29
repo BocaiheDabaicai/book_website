@@ -1,0 +1,77 @@
+/* ── 自定义字体配置 ──
+   将字体文件放入 docs/public/fonts/ 目录，
+   然后取消下方对应的 @font-face 注释并修改文件名即可。
+
+   推荐 Google Fonts 方案（无需下载字体文件）：
+   https://fonts.google.com/noto/specimen/Noto+Serif+SC
+   https://fonts.google.com/noto/specimen/Noto+Serif
+
+   中文衬线字体推荐：
+   - Noto Serif SC（思源宋体）— 免费，Google Fonts 可引用
+   - Source Han Serif SC（思源宋体）— Adobe 开源
+
+   英文衬线字体推荐：
+   - Lora — 优雅的阅读衬线体，Google Fonts 可引用
+   - Merriweather — 屏显优化的衬线体，Google Fonts 可引用
+   - Crimson Pro — 经典的书籍排版字体
+   - EB Garamond — 复古优雅的 Garamond 风格
+   ─────────────────────────────── */
+
+/* ══ 方案一：本地字体 ══ */
+/* 将 .woff2/.ttf/.otf 放入 docs/public/fonts/ 后取消注释 */
+
+/*
+@font-face {
+  font-family: "Custom Serif";
+  src: url("/fonts/YourFont-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Custom Serif";
+  src: url("/fonts/YourFont-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+*/
+
+/* ══ 方案二：Google Fonts CDN ══ */
+/* 在 rspress.config.ts 的 head 中添加以下内容来引用在线字体：
+
+head: [
+  [
+    "link",
+    {
+      rel: "preconnect",
+      href: "https://fonts.googleapis.com",
+    },
+  ],
+  [
+    "link",
+    {
+      rel: "preconnect",
+      href: "https://fonts.gstatic.com",
+      crossorigin: "",
+    },
+  ],
+  [
+    "link",
+    {
+      rel: "stylesheet",
+      href: "https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap",
+    },
+  ],
+],
+
+   然后在下方设置 font-family 为 "Noto Serif SC", "Lora", serif;
+*/
+
+/* 当前使用的字体栈已在 src/styles/theme.css 中定义：
+   --rp-font-family-base: "Noto Serif SC", "Source Han Serif SC",
+     "Noto Serif", Georgia, "Times New Roman", "Songti SC", "SimSun", serif;
+
+   系统会自动回退到可用的衬线字体。
+*/

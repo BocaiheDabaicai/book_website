@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" fill="none">
+  <defs>
+    <linearGradient id="leaf" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#a8d5ba"/>
+      <stop offset="40%" style="stop-color:#7eb89a"/>
+      <stop offset="100%" style="stop-color:#5a9a7a"/>
+    </linearGradient>
+    <linearGradient id="vein" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff60"/>
+      <stop offset="100%" style="stop-color:#ffffff20"/>
+    </linearGradient>
+  </defs>
+  <path d="M64 10 C30 20 10 50 10 75 C10 100 35 118 64 118 C93 118 118 100 118 75 C118 50 98 20 64 10Z"
+        fill="url(#leaf)" stroke="#4d8a6a" stroke-width="1.5"/>
+  <path d="M64 15 L64 112" stroke="url(#vein)" stroke-width="2" stroke-linecap="round"/>
+  <path d="M64 35 C50 30 40 28 28 32" stroke="url(#vein)" stroke-width="1.2" stroke-linecap="round" fill="none"/>
+  <path d="M64 55 C50 52 40 48 24 56" stroke="url(#vein)" stroke-width="1.2" stroke-linecap="round" fill="none"/>
+  <path d="M64 75 C50 74 38 72 24 80" stroke="url(#vein)" stroke-width="1.2" stroke-linecap="round" fill="none"/>
+  <path d="M64 35 C78 30 88 28 100 32" stroke="url(#vein)" stroke-width="1.2" stroke-linecap="round" fill="none"/>
+  <path d="M64 55 C78 52 88 48 104 56" stroke="url(#vein)" stroke-width="1.2" stroke-linecap="round" fill="none"/>
+  <path d="M64 75 C78 74 90 72 104 80" stroke="url(#vein)" stroke-width="1.2" stroke-linecap="round" fill="none"/>
+</svg>

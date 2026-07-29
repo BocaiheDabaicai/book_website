@@ -8,5 +8,13 @@
     "type": "file",
     "name": "summary",
     "label": "论文总结"
+  },
+  {
+    "type": "divider"
+  },
+  {
+    "type": "file",
+    "name": "“区块链+BIM”技术在工程项目管理中的应用",
+    "label": "“区块链+BIM”技术在工程项目管理中的应用"
   }
 ]

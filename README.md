@@ -53,36 +53,86 @@ npm run preview  # 预览构建产物
 - `index.md` 首页列表（含统计数据）
 - 论文总结表格
 
+## 管理后台生产环境隐藏
+
+管理后台在 `npm run build` 时自动排除，生产站点不包含 `/admin/` 路由，顶部导航栏亦不会显示管理入口。`npm run dev` 时正常可用。
+
+实现方式：通过 Rspress 自定义插件 `hideAdminInProduction`，在 `config` 钩子中判断 `isProd`，动态设置 `route.exclude: ['admin/**']`。
+
+## UI 主题定制
+
+### 配色
+
+淡绿色（Sage Green）为主色调，暖白纸色背景，营造温柔、轻盈的阅读氛围。
+
+| 用途 | 色值 |
+|------|------|
+| 品牌主色 | `#7eb89a` |
+| 品牌浅色 | `#a0d0b8` |
+| 品牌深色 | `#5d9a7a` |
+| 页面背景 | `#fdfcfa`（暖白） |
+| 软背景 | `#f5f3ee`（奶油） |
+| 正文色 | `#3d3a35`（暖深灰） |
+
+主题变量定义在 `src/styles/theme.css`，覆盖了 Rspress 默认的 `--rp-c-*` CSS 变量，同时包含暗色模式适配。
+
+### Logo
+
+- `docs/public/leaf-logo.svg` — 浅色主题 Logo（绿叶）
+- `docs/public/leaf-logo-dark.svg` — 深色主题 Logo（绿叶浅色款）
+
+### 字体
+
+默认通过 Google Fonts CDN 加载 **Inter**（拉丁/UI） + **Noto Serif SC / 思源宋体**（中文衬线），字体栈定义在 `src/styles/theme.css`：
+
+```css
+--rp-font-family-base: "Noto Serif SC", "Source Han Serif SC",
+  "Noto Serif", Georgia, "Times New Roman", "Songti SC", "SimSun", serif;
+```
+
+如需使用本地字体：
+
+1. 将 `.woff2` / `.ttf` / `.otf` 字体文件放入 `docs/public/fonts/`
+2. 编辑 `src/styles/fonts.css`，取消 `@font-face` 注释并修改文件名
+3. 在 `src/styles/theme.css` 中调整 `--rp-font-family-base` 的字体栈顺序
+
 ## 目录结构
 
 ```
 book_website/
-├── docs/                       # Rspress 内容根目录
-│   ├── index.md                # 首页
-│   ├── _nav.json               # 顶部导航配置
-│   ├── books/                  # 书籍笔记
+├── docs/                          # Rspress 内容根目录
+│   ├── index.md                   # 首页
+│   ├── _nav.json                  # 顶部导航配置
+│   ├── books/                     # 书籍笔记
 │   │   ├── _meta.json
 │   │   └── index.md
-│   ├── papers/                 # 论文页面
+│   ├── papers/                    # 论文页面
 │   │   ├── _meta.json
 │   │   ├── index.md
-│   │   ├── summary.md          # 论文精读总结索引
-│   │   └── summaries/          # 单篇精读详情
-│   ├── notes/                  # 学习笔记
+│   │   ├── summary.md             # 论文精读总结索引
+│   │   └── summaries/             # 单篇精读详情
+│   ├── notes/                     # 学习笔记
 │   │   ├── _meta.json
 │   │   └── index.md
-│   ├── admin/                  # 管理后台页面
+│   ├── admin/                     # 管理后台页面
 │   └── public/
-│       └── papers/             # PDF 文件存放目录
-├── src/components/             # React 组件
-│   ├── FileSystemContext.tsx    # 文件系统操作上下文
-│   ├── BookManager.tsx          # 书籍管理表单
-│   ├── PaperManager.tsx         # 论文管理表单
-│   ├── PaperSummaryManager.tsx  # 论文精读管理表单
-│   ├── NotesManager.tsx         # 笔记管理表单
-│   └── PDFLink.tsx              # PDF 链接按钮组件
-├── rspress.config.ts           # Rspress 配置文件
-├── i18n.json                   # 中文国际化翻译
+│       ├── papers/                # PDF 文件存放目录
+│       ├── fonts/                 # 本地字体文件存放目录
+│       ├── leaf-logo.svg          # 浅色主题 Logo
+│       └── leaf-logo-dark.svg     # 深色主题 Logo
+├── src/
+│   ├── components/                # React 组件
+│   │   ├── FileSystemContext.tsx   # 文件系统操作上下文
+│   │   ├── BookManager.tsx         # 书籍管理表单
+│   │   ├── PaperManager.tsx        # 论文管理表单
+│   │   ├── PaperSummaryManager.tsx # 论文精读管理表单
+│   │   ├── NotesManager.tsx        # 笔记管理表单
+│   │   └── PDFLink.tsx             # PDF 链接按钮组件
+│   └── styles/                    # 主题样式
+│       ├── theme.css              # 淡绿色主题（CSS 变量 + 组件样式）
+│       └── fonts.css              # 本地字体配置模板
+├── rspress.config.ts              # Rspress 配置（Logo、字体、插件）
+├── i18n.json                      # 中文国际化翻译
 └── package.json
 ```
 
@@ -105,7 +155,8 @@ book_website/
 
 - **框架**: Rspress v2 (基于 Rspack + React)
 - **文件操作**: File System Access API + IndexedDB 持久化
-- **样式**: Rspress 内置主题 + 内联样式
+- **样式**: Rspress 内置主题 + 自定义淡绿色 CSS 变量
+- **字体**: Google Fonts (Inter + Noto Serif SC) + 本地字体支持
 
 ## 浏览器兼容
 

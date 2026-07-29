@@ -3,5 +3,13 @@
     "type": "file",
     "name": "index",
     "label": "学习笔记"
+  },
+  {
+    "type": "divider"
+  },
+  {
+    "type": "file",
+    "name": "jh",
+    "label": "jh"
   }
 ]
