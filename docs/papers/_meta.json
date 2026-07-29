@@ -8,18 +8,5 @@
     "type": "file",
     "name": "summary",
     "label": "论文总结"
-  },
-  {
-    "type": "divider"
-  },
-  {
-    "type": "file",
-    "name": "轻微的轻微的",
-    "label": "轻微的轻微的"
-  },
-  {
-    "type": "file",
-    "name": "啊实打实的",
-    "label": "啊实打实的"
   }
 ]
